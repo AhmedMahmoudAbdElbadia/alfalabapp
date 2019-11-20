@@ -1,0 +1,7 @@
+{
+  "name": "AlfaLabApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "870640029892",
+    "firebase_url": "https://businesscontacts-c9bf1.firebaseio.com",
+    "project_id": "businesscontacts-c9bf1",
+    "storage_bucket": "businesscontacts-c9bf1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870640029892:android:847ed7a4ce718a56",
+        "android_client_info": {
+          "package_name": "alfalab.com.sa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870640029892-9jspb3uji8hqf11u6p78pn0pno1mlucr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChy288b6STIVUxgV_sFXmgvpT8IBaEjS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870640029892-9jspb3uji8hqf11u6p78pn0pno1mlucr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

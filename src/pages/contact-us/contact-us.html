@@ -1,0 +1,157 @@
+<!--
+  Generated template for the ContactUsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>اتصل بنا</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="font-family:Neo sans !important " >
+    <ion-card  style="text-align:center; background-color:#4b7ebd;">
+        <img src="../../assets/imgs/1.jpg"/>
+        <div style="background-color:#c53f3f; color:white; height:80px; "  >
+        
+        <br>
+          <ion-icon name="call" (click)="callSupport()"> 920010505</ion-icon> الرقم الموحد
+        <br>
+        <br>
+        <a style="color: white;" href="info@alfalab.com.sa"><ion-icon name="md-mail" > info@alfalab.com.sa</ion-icon></a>
+       
+        </div>
+        
+      </ion-card>
+  <ion-card  >
+    <ion-card-header style="text-align: center; font-size: x-large; color:#c53f3f ;">
+     ارقام فروعنا
+     اضغط على الرقم للاتصال
+    </ion-card-header>
+
+    <div padding>
+      <ion-segment [(ngModel)]="pet">
+        <ion-segment-button  value="riad">
+          الرياض
+        </ion-segment-button>
+        <ion-segment-button value="qassim">
+          القصيم
+        </ion-segment-button>
+        <ion-segment-button value="shmalia">
+           الشمالية
+        </ion-segment-button>
+        <ion-segment-button value="sharkia">
+           الشرقية
+        </ion-segment-button>
+        <ion-segment-button value="janobia">
+           الجنوبية
+        </ion-segment-button>
+      </ion-segment>
+      
+    </div>
+  
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'riad'">
+    <ion-item>
+         <a style="text-decoration: none; font-size:larger;"  href="tel:0112167979" class="button button-positive">       <ion-icon name="call"></ion-icon> العليا الفرع الرئيسي 0112167979  </a> 
+
+        </ion-item>
+    <ion-item>
+         <a style="text-decoration: none; font-size:larger;"  href="tel:0114257979" class="button button-positive">       <ion-icon name="call"></ion-icon> البديعة 0114257979  </a> 
+     </ion-item>
+     <ion-item>
+         <a style="text-decoration: none; font-size:larger;"  href="tel:0112777979" class="button button-positive">       <ion-icon name="call"></ion-icon> انس ابن مالك 0112777979  </a> 
+
+    </ion-item>
+     <ion-item>
+         <a style="text-decoration: none; font-size:larger;"  href="tel:0114117979" class="button button-positive">       <ion-icon name="call"></ion-icon> خالد ابن الوليد 0114117979  </a> 
+
+     </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'qassim'">
+      <ion-item>
+    <a style="text-decoration: none; font-size:larger;"  href="tel:0163697979" class="button button-positive">       <ion-icon name="call"></ion-icon>         بريدة   0163697979   </a> 
+    
+      </ion-item>
+      <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0163827979" class="button button-positive">       <ion-icon name="call"></ion-icon>         بريدة (2) 0163827979   </a> 
+       </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0163397979" class="button button-positive">       <ion-icon name="call"></ion-icon>        الرس 0163397979   </a> 
+      </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0163357979" class="button button-positive">       <ion-icon name="call"></ion-icon>      البكيرية 0163357979   </a> 
+       </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0163657979" class="button button-positive">       <ion-icon name="call"></ion-icon>      عنيزه 0163657979   </a> 
+
+       </ion-item>
+  </ion-list>
+  <ion-list *ngSwitchCase="'shmalia'">
+      <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0144247979" class="button button-positive">       <ion-icon name="call"></ion-icon>      تبوك 0144247979   </a> 
+
+          </ion-item>
+      <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0165437979" class="button button-positive">       <ion-icon name="call"></ion-icon>      حائل 0165437979   </a> 
+
+       </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0144357979" class="button button-positive">       <ion-icon name="call"></ion-icon>      ضبا 0144357979   </a> 
+      </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0146467979" class="button button-positive">       <ion-icon name="call"></ion-icon>      سكاكا 0146467979   </a> 
+
+       </ion-item>
+ 
+  </ion-list>
+  <ion-list *ngSwitchCase="'sharkia'">
+      <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0138357979" class="button button-positive">       <ion-icon name="call"></ion-icon>    الدمام (1) 0138357979   </a> 
+
+
+          </ion-item>
+      <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0138347979" class="button button-positive">       <ion-icon name="call"></ion-icon>     الدمام (2) 0138347979  </a> 
+
+       </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0135827979" class="button button-positive">       <ion-icon name="call"></ion-icon>    الاحساء 0135827979  </a> 
+
+      </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0137217979" class="button button-positive">       <ion-icon name="call"></ion-icon>   حفر الباطن 0137217979  </a> 
+       </ion-item>
+  </ion-list>
+  <ion-list *ngSwitchCase="'janobia'">
+      <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0172557979" class="button button-positive">       <ion-icon name="call"></ion-icon>   خميس مشيط 0172557979  </a> 
+
+       </ion-item>
+      <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0172257979" class="button button-positive">       <ion-icon name="call"></ion-icon>  أبها 0172257979  </a> 
+
+       </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0176207979" class="button button-positive">       <ion-icon name="call"></ion-icon> بيشة 0176207979  </a> 
+
+      </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0172857979" class="button button-positive">       <ion-icon name="call"></ion-icon> محايل 0172857979  </a> 
+       </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0176307979" class="button button-positive">       <ion-icon name="call"></ion-icon> سبت العلاية 0176307979  </a> 
+
+       </ion-item>
+       <ion-item>
+            <a style="text-decoration: none; font-size:larger;"  href="tel:0173227979" class="button button-positive">       <ion-icon name="call"></ion-icon> جازان 0173227979  </a> 
+       </ion-item>
+  </ion-list>
+</div>
+  </ion-card>
+</ion-content>

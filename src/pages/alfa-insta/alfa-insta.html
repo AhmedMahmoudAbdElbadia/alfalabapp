@@ -1,0 +1,60 @@
+<!--
+  Generated template for the AlfaInstaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>صفحتنا على انستجرام</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding  style="font-family:Neo sans !important; background-color: #c53f3f ">
+  <ion-card *ngFor="let item of insfeed" >
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{item.user.profile_picture}}">
+      </ion-avatar>
+
+    
+      
+      <p>{{item.user.full_name}}</p>
+    </ion-item>
+    <ion-item (click)="openUrl('instagram', 'alfalab_sa')" >
+      <button ion-button> <ion-icon name="logo-instagram" style="color:#c53f3f" slot="start"></ion-icon>
+              Follow Us
+        </button>
+    </ion-item>
+    <img src="{{item.images.standard_resolution.url}}">
+  
+    <ion-card-content *ngIf="item.caption !==null"  >
+     <p>{{item.caption.text}}</p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{item.likes.count}}  Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{item.comments.count}} Comments</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
+</ion-content>

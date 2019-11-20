@@ -1,0 +1,82 @@
+<!--
+  Generated template for the BookTimePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>طلب زيارة منزلية</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="font-family:Neo sans !important ">
+   
+  <form [formGroup]="form" (ngSubmit)="addVisitHome()">
+  <ion-list  >
+   
+    <ion-item  no-padding transparent>
+      <ion-label floating>إسم المريض</ion-label>
+      <ion-input required formControlName="PaintName" type="text"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item  no-padding transparent>                             
+      <ion-select placeholder="الجنس" style="max-width:100% !important;" required formControlName="Gender">   
+       
+        <ion-option value="m">ذكر</ion-option>
+        <ion-option value="f">انثي</ion-option>
+      </ion-select>        
+      </ion-item> 
+
+    <ion-item  no-padding transparent>
+      <ion-label floating >رقم الجوال</ion-label>
+      <ion-input  required formControlName="PhoneNum" type="number"></ion-input>
+    </ion-item>
+  </ion-list>
+  
+ 
+<ion-item  no-padding transparent>
+     
+      <ion-label>اختار الفرع</ion-label>
+      <select-searchable  required formControlName="Branch"
+          item-content
+          [(ngModel)]="branch"
+          [items]="branches"
+          itemValueField="id"
+          itemTextField="name"
+          [canSearch]="true"
+          >
+      </select-searchable>
+    </ion-item>
+  
+    <ion-item  no-padding transparent>
+      <ion-label floating>التوقيت</ion-label>
+      <ion-select  required formControlName="Time">   
+        <ion-option value="f">من الساعه 8 الي الساعه 12 ظهرا</ion-option>
+        <ion-option value="m">من الساعه 12 الي الساعه 4 عصرا</ion-option>
+        <ion-option value="s">من الساعه 4 الي الساعه 9 مساءا</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item  no-padding transparent>
+        <ion-label floating>نوع التحليل </ion-label>
+        <select-searchable  required formControlName="TestType"
+        item-content
+        [(ngModel)]="test"
+        [items]="tests"
+        itemValueField="id"
+        itemTextField="name"
+        [canSearch]="true"
+        [isMultiple]="true"
+      >
+    </select-searchable>
+    </ion-item>
+ <br>
+    <button default-button full ion-button type="submit" >
+    حفظ
+</button> 
+  </form>
+
+</ion-content>

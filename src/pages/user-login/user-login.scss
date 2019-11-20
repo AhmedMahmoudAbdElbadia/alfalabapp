@@ -1,0 +1,31 @@
+.ios,.md,.wp{
+  page-user-login {
+      .toolbar-background{ background:transparent; border-style:none;}
+      .toolbar::after,.header-md::after{ background-image:none;}
+      ion-content{
+        // background-color:color($colors,BlueAlfa);
+        background-color:color($colors,BlueAlfa) ;
+         background-image:url('../../assets/imgs/');
+         background-size:100% auto;
+      }
+
+
+      //.scroll-content { display: table; width: 100%; height: 100%; }
+      .centerAlign { display: table-cell; vertical-align: middle; border:#ff0000 1px solid; }
+
+      .item{border:color($colors,light) 1px solid !important; border-radius: 30px; margin-bottom:10px;}
+  }
+
+  .facebookButton{
+    background-color: #ff0000
+  }
+  .row1{
+    background-color:color($colors,RedAlfa);
+  }
+  .twitter{
+    background-color:#38A1F3 !important;
+  }
+  .googleplus{
+    background-color:#C03221 !important;
+  }
+}
