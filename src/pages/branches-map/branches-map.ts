@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
-import { GeolocationOptions, Geolocation} from '@ionic-native/geolocation/ngx';
+import { GeolocationOptions, Geolocation} from '@ionic-native/geolocation';
 
 /**
  * Generated class for the BranchesMapPage page.

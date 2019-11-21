@@ -44,9 +44,8 @@ export class MyApp {
     ];
     if (this.platform.is('cordova')) {
      OneSignal.startInit(this.signal_app_id, this.firebase_id);
-
-    OneSignal.inFocusDisplaying(OneSignal.OSInFocusDisplayOption.InAppAlert);
-    
+  OneSignal.inFocusDisplaying(OneSignal.OSInFocusDisplayOption.InAppAlert);
+ 
     OneSignal.handleNotificationReceived().subscribe((res) => {
      // do something when notification is received
      console.log(res)

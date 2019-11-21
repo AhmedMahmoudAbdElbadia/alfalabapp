@@ -65,7 +65,7 @@ import { UserLogin } from '../pages/user-login/user-login';
 import { AuthService } from '../services/auth.service';
 import { UserSignup } from '../pages/user-signup/user-signup';
 import { Facebook } from '@ionic-native/facebook/ngx';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+// import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 // import {File} from '@ionic-native/file/ngx';
@@ -136,7 +136,6 @@ const config :SocketIoConfig ={url: 'http://localhost:3001', options:{}}
    AlfaLabServices,
    CallNumber,
    Facebook,
-   Geolocation,
    LaunchNavigator,
    OneSignal,AppAvailability,
    {provide: ErrorHandler, useClass: IonicErrorHandler}

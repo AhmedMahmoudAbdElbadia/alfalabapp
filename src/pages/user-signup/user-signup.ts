@@ -72,7 +72,7 @@ export class UserSignup {
 			.then(
         () =>{ this.navCtrl.setRoot(HomePage)
           
-          
+          this.menuCtrl.enable(true, 'myMenu');
         
         console.log(this.loginError)
        this.DoneAddToast();
@@ -91,7 +91,14 @@ export class UserSignup {
         });
         toast.present();
        }
-       
+       else if(error.code=="auth/email-already-in-use"){
+        let toast = this.toastCtrl.create({
+          message: 'هذا البريد الالكتروني مسجل من قبل',
+          duration: 3000,
+          cssClass:"color:red"
+        });
+        toast.present();
+       }
         else{
           let toast = this.toastCtrl.create({
             message: 'يجب ان تكون كلمه المرور اكثر من 6 ارقام او حروف',
