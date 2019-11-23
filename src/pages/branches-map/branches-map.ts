@@ -17,25 +17,25 @@ import { GeolocationOptions, Geolocation} from '@ionic-native/geolocation';
 })
 export class BranchesMapPage {
 
-  constructor(public navCtrl: NavController,private geolocation: Geolocation,public toastCtrl: ToastController,private launchNavigator: LaunchNavigator, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,public toastCtrl: ToastController,private launchNavigator: LaunchNavigator, public navParams: NavParams) {
     let geoOptions: GeolocationOptions = {
       enableHighAccuracy:true,
       timeout:500000,
       maximumAge:10,
     };
-    this.geolocation.getCurrentPosition().then((resp) => {
-      let toast = this.toastCtrl.create({
+    // this.geolocation.getCurrentPosition().then((resp) => {
+    //   let toast = this.toastCtrl.create({
       
-        message: ""+resp.coords,
-        duration: 3000,
-        cssClass:"color:red"
-      });
-      toast.present();
-      // resp.coords.latitude
-      // resp.coords.longitude
-     }).catch((error) => {
-       console.log('Error getting location', error);
-     });
+    //     message: ""+resp.coords,
+    //     duration: 3000,
+    //     cssClass:"color:red"
+    //   });
+    //   toast.present();
+    //   // resp.coords.latitude
+    //   // resp.coords.longitude
+    //  }).catch((error) => {
+    //    console.log('Error getting location', error);
+    //  });
      
   }
 

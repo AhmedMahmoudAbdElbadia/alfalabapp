@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ActionSheetController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { BranchesMapPage } from '../branches-map/branches-map';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
@@ -26,10 +27,12 @@ import { AuthService } from '../../services/auth.service';
 export class MainPage {
   name: any;
   user: any;
+  useremail: Promise<any>;
   
-  constructor(public navCtrl: NavController,public navParams: NavParams,public actionSheetCtrl: ActionSheetController,private auth: AuthService,private iab: InAppBrowser,private socket:Socket) {
+  constructor(public navCtrl: NavController,public storage : Storage,public navParams: NavParams,public actionSheetCtrl: ActionSheetController,private auth: AuthService,private iab: InAppBrowser,private socket:Socket) {
  
- 
+ this.useremail =this.storage.get('useremail')
+ console.log(this.useremail);
   }
 
   ionViewDidLoad() {

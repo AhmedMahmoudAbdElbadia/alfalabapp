@@ -102,7 +102,7 @@ const config :SocketIoConfig ={url: 'http://localhost:3001', options:{}}
   imports: [
     BrowserModule, SelectSearchableModule,SocketIoModule.forRoot(config),IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig.fire),
-    FormsModule ,HttpModule ,IonicImageViewerModule,IonicModule.forRoot(MyApp)
+    FormsModule ,HttpModule ,IonicImageViewerModule,IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

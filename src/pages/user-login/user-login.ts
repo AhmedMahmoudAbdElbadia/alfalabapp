@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
 
-
+import { Storage } from '@ionic/storage';
 import { UserSignup } from '../user-signup/user-signup';
 import { UserForgotpassword } from '../user-forgotpassword/user-forgotpassword';
 import { MainPage } from '../main/main';
@@ -23,8 +23,8 @@ export class UserLogin {
  loginError: string;
   user: any;
   facebook: any;
-
-  constructor(public navCtrl: NavController, public toastCtrl: ToastController,public menuCtrl: MenuController,private fb: Facebook,public navParams: NavParams,private formBuilder: FormBuilder,private auth: AuthService) {
+  
+  constructor(public navCtrl: NavController, private storage:Storage,public toastCtrl: ToastController,public menuCtrl: MenuController,private fb: Facebook,public navParams: NavParams,private formBuilder: FormBuilder,private auth: AuthService) {
   
     this.form = this.formBuilder.group({
       Email: ['', Validators.required],
@@ -125,12 +125,14 @@ Login(){
           this.auth.afAuth.authState.subscribe(user=>{
             this.user=user
             console.log(this.user.email) 
+            this.storage.set('useremail',this.user.email)
              this.navCtrl.setRoot(HomePage,{user: this.user});
             
           })
       
       
  this.menuCtrl.enable(true, 'myMenu');
+ 
         }
 			).catch(error=>{
 
