@@ -18,6 +18,9 @@
     <!-- <div class="hrLine"><span>Or</span></div> -->
     <form [formGroup]="form" (ngSubmit)="signUp()">
     <ion-list no-lines padding-top>
+        <ion-item>
+            <ion-input required formControlName="Name" type="text" placeholder="الاسم"></ion-input>
+          </ion-item>
       <ion-item>
         <ion-input required formControlName="Email" type="email" placeholder="البريد الالكتروني"></ion-input>
       </ion-item>

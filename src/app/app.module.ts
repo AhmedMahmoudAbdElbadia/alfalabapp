@@ -95,7 +95,8 @@ const config :SocketIoConfig ={url: 'http://localhost:3001', options:{}}
     UserLogin,
     AlfaInstaPage,
     UserSignup,
-    ContactUsPage
+    ContactUsPage,
+    CalcBmrPage
     
     
   ],
@@ -125,7 +126,8 @@ const config :SocketIoConfig ={url: 'http://localhost:3001', options:{}}
     UserLogin,
     UserSignup,
     AlfaInstaPage,
-    ContactUsPage
+    ContactUsPage,
+    CalcBmrPage
   ],
   providers: [
     StatusBar,

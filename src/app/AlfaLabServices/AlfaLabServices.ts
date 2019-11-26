@@ -20,6 +20,7 @@ export class AlfaLabServices{
     Complaints: any;
     instgramfeed: string;
     tamany: any;
+    Users: any;
     static get parameters() {
     return [Http];
 }
@@ -32,6 +33,7 @@ this.VisitHome ='https://api.mlab.com/api/1/databases/alfalabdb/collections/visi
 this.Complaints='https://api.mlab.com/api/1/databases/alfalabdb/collections/complaints';
 this.tamany='https://api.mlab.com/api/1/databases/alfalabdb/collections/tamany';
 this.instgramfeed ='https://api.instagram.com/v1/users/self/media/recent/?access_token=5557661284.1677ed0.5bd6458e07514a87876f61df56f6d3ac'
+this.Users='https://api.mlab.com/api/1/databases/alfalabdb/collections/users'
 
 }
 private _url= 'assets/country.json';
@@ -56,6 +58,12 @@ return this.http.post(this.VisitHome+'?apiKey='+this.apiKey,JSON.stringify(visit
 .map(res=> res.json());
 }
 
+addUser(userinfo){
+    var headers=new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post(this.Users+'?apiKey='+this.apiKey,JSON.stringify(userinfo),{headers:headers})
+    .map(res=> res.json());
+    }
 addComplaints(Complaints){
     var headers=new Headers();
 headers.append('Content-Type','application/json');

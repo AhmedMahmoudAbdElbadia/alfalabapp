@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
-
-
+import {  AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
 import { UserLogin } from '../user-login/user-login';
 import { UserForgotpassword } from '../user-forgotpassword/user-forgotpassword';
 import { MainPage } from '../main/main';
@@ -17,22 +16,26 @@ import { HomePage } from '../home/home';
 export class UserSignup {
   Email: AbstractControl;
   Password: AbstractControl;
+  Name: AbstractControl;
  public form: FormGroup;
   loginError: any;
   loginErrorcode:any;
+  resualt: any;
  
-  constructor(public navCtrl: NavController,public toastCtrl: ToastController,public menuCtrl: MenuController ,public navParams: NavParams,private formBuilder: FormBuilder,private auth: AuthService) {
+  constructor(public navCtrl: NavController,public AlfaLabServices:AlfaLabServices,public toastCtrl: ToastController,public menuCtrl: MenuController ,public navParams: NavParams,private formBuilder: FormBuilder,private auth: AuthService) {
     
 
     this.form = this.formBuilder.group({
       Email: ['', Validators.required],
       Password: ['', Validators.required],
+      Name:['',Validators.required]
 
     
     });
 
     this.Email=this.form.controls['Email'];
     this.Password=this.form.controls['Password'];
+    this.Name=this.form.controls['Name'];
   }
 
   ionViewDidLoad() {
@@ -48,10 +51,11 @@ export class UserSignup {
 
   signUp(){
         
-  if(!this.Email.hasError('required')&&!this.Email.errors&&!this.Password.hasError('required')){
+  if(!this.Email.hasError('required')&&!this.Email.errors&&!this.Password.hasError('required')&&!this.Name.hasError('required')){
     let credentials= {
     Email: this.Email.value,
     Password: this.Password.value,
+    Name:this.Name.value
     
  
     }
@@ -61,13 +65,20 @@ export class UserSignup {
 		if (!credentials.Email) {
 			return;
 		}
-
+this.AlfaLabServices.addUser(credentials).subscribe(data=>
+  {   this.resualt=data},
+  err => console.log(err)
+  
+  )     
 		// let credentials = {
 		// 	email: data.email,
 		// 	password: data.password
     // };
     
     // this.auth.afAuth.auth.signInWithPhoneNumber("04",)
+
+  this.auth
+
 		this.auth.signUpWithEmail(credentials.Email,credentials.Password)
 			.then(
         () =>{ this.navCtrl.setRoot(HomePage)
