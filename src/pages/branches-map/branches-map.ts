@@ -46,11 +46,11 @@ GoTo(){
 
   
   let options: LaunchNavigatorOptions = {
-    start: 'London, ON',
+    start: '',
     app:this.launchNavigator.APP.GOOGLE_MAPS
   };
   
-  this.launchNavigator.navigate('24.593908, 46.633042', options)
+  this.launchNavigator.navigate('24.593854, 46.632998', options)
     .then(
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)

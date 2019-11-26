@@ -106,10 +106,7 @@
         "FACEBOOK_HYBRID_APP_EVENTS": "false",
         "FACEBOOK_ANDROID_SDK_VERSION": "4.40.0"
       },
-      "uk.co.workingedge.phonegap.plugin.launchnavigator": {
-        "GOOGLE_API_KEY_FOR_ANDROID": "{AIzaSyBaGBI5EVu-N6EDA9eaHEzPY6biqJAI28c}",
-        "OKHTTP_VERSION": "3.12.0"
-      },
+      "uk.co.workingedge.phonegap.plugin.launchnavigator": {},
       "cordova-plugin-geolocation": {},
       "mx.ferreyra.callnumber": {}
     },
