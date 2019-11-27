@@ -14,29 +14,653 @@
 
 
 <ion-content padding style="font-family:Neo sans !important ">
-  <ion-card style="background:#4b7ebd">
+  
+  <ion-segment [(ngModel)]="pet">
+      <ion-segment-button  value="riad">
+        الرياض
+      </ion-segment-button>
+      <ion-segment-button value="qassim">
+        القصيم
+      </ion-segment-button>
+      <ion-segment-button value="shmalia">
+         الشمالية
+      </ion-segment-button>
+      <ion-segment-button value="sharkia">
+         الشرقية
+      </ion-segment-button>
+      <ion-segment-button value="janobia">
+         الجنوبية
+      </ion-segment-button>
+    </ion-segment>
 
-    <img src="img/../../../assets/imgs/badiaa.jpg">
-    <ion-fab right top>
-      <button ion-fab>
-        <ion-icon name="pin"></ion-icon>
-      </button>
-    </ion-fab>
-  
-    <ion-item>
-      <ion-icon name="md-pin" item-start large></ion-icon>
-      <h2>الرياض البديعة</h2>
-      <p>طريق المدينة المنورة، ظهرة البديعة، الرياض 12982</p>
-    </ion-item>
-  
-  
-    <ion-item>
-      
-      <button ion-button icon-start clear item-end (click)="GoTo()">
-        <ion-icon name="navigate" ></ion-icon>
-        Go To Alfa
-      </button>
-    </ion-item>
-  
-  </ion-card>
+    <div [ngSwitch]="pet">
+      <ion-list *ngSwitchCase="'riad'">
+        <ion-item>
+          <ion-card style="background:#4b7ebd; height:250px;">
+
+            <img style="height: 150px;" src="img/../../../assets/imgs/olya.jpg">
+            <ion-fab right top>
+              <button ion-fab>
+                <ion-icon name="pin"></ion-icon>
+              </button>
+            </ion-fab>
+          
+            <ion-item>
+              <ion-icon name="md-pin" item-start large></ion-icon>
+              <h2>الرياض العليا</h2>
+              <p>العليا، Thumamah Valley St, Al, الرياض 12214</p>
+            </ion-item>
+          
+          
+            <ion-item>
+              
+              <button ion-button icon-start clear item-end (click)="GoTo('24.708859, 46.677043')">
+                <ion-icon name="navigate" ></ion-icon>
+                الذهاب الى الفرع
+              </button>
+            </ion-item>
+            
+          </ion-card>    
+            </ion-item>
+        <ion-item>
+<ion-card style="background:#4b7ebd; height:250px;">
+
+            <img style="height: 150px;" src="img/../../../assets/imgs/badiaa.jpg">
+            <ion-fab right top>
+              <button ion-fab>
+                <ion-icon name="pin"></ion-icon>
+              </button>
+            </ion-fab>
+          
+            <ion-item>
+              <ion-icon name="md-pin" item-start large></ion-icon>
+              <h2>الرياض البديعه</h2>
+              <p>طريق المدينة المنورة، ظهرة البديعة، الرياض 12982</p>
+            </ion-item>
+          
+          
+            <ion-item>
+              
+              <button ion-button icon-start clear item-end (click)="GoTo('24.593547, 46.633040')">
+                <ion-icon name="navigate" ></ion-icon>
+                الذهاب الى الفرع
+              </button>
+            </ion-item>
+            
+          </ion-card>   
+                 </ion-item>
+         <ion-item>
+          <ion-card style="background:#4b7ebd; height:250px;">
+
+          <img style="height: 150px;" src="img/../../../assets/imgs/anas.jpg">
+          <ion-fab right top>
+            <button ion-fab>
+              <ion-icon name="pin"></ion-icon>
+            </button>
+          </ion-fab>
+        
+          <ion-item>
+            <ion-icon name="md-pin" item-start large></ion-icon>
+            <h2>الرياض انس بن مالك</h2>
+            <p>الرياض   13524 طريق انس ابن مالك</p>
+          </ion-item>
+        
+        
+          <ion-item>
+            
+            <button ion-button icon-start clear item-end (click)="GoTo('24.809295, 46.619052')">
+              <ion-icon name="navigate" ></ion-icon>
+              الذهاب الى الفرع
+            </button>
+          </ion-item>
+          
+        </ion-card>      
+        </ion-item>
+         <ion-item>
+          <ion-card style="background:#4b7ebd; height:250px;">
+
+            <img style="height: 150px;" src="img/../../../assets/imgs/khaledibnelwaleed.jpg">
+            <ion-fab right top>
+              <button ion-fab>
+                <ion-icon name="pin"></ion-icon>
+              </button>
+            </ion-fab>
+          
+            <ion-item>
+              <ion-icon name="md-pin" item-start large></ion-icon>
+              <h2>الرياض خالد ابن الوليد</h2>
+              <p>شارع خالد بن الوليد، الملك فيصل، الرياض 13215</p>
+            </ion-item>
+          
+          
+            <ion-item>
+              
+              <button ion-button icon-start clear item-end (click)="GoTo('24.749950, 46.772487')">
+                <ion-icon name="navigate" ></ion-icon>
+                الذهاب الى الفرع
+              </button>
+            </ion-item>
+            
+          </ion-card>     
+         </ion-item>
+
+      </ion-list>
+    
+      <ion-list *ngSwitchCase="'qassim'">
+          <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/buryda.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>بريدة امام برج بريدة بجوار نادي التعاون</h2>
+                <p> 7138 طريق الملك عبد العزيز، حي الصفراء، بريدة 52381 4616</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('26.354232, 43.954043')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>         
+          </ion-item>
+          <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/buryda2.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>بريدة (2) بجوار جامع الراجحي </h2>
+                <p>  حي الصفراء، بريدة 52385 بجوار جامع الراجحي</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('26.374771, 43.957258')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>               </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/raas.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>الرس</h2>
+                <p>  طريق الملك عبدالعزيز، الرس 58839</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('25.843670, 43.381065')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>            </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/bakyria.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>البيكرية</h2>
+                <p>  طريق الملك عبدالعزيز، البكيرية 52741</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('26.152346, 43.652868')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>             </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/unaiza.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>عنيزة</h2>
+                <p>  سلطانة، عنيزة  56434 امام مستشفي الملك سعود</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('26.105882, 43.990433')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>      
+           </ion-item>
+      </ion-list>
+      <ion-list *ngSwitchCase="'shmalia'">
+          <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/tabuk.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>تبوك </h2>
+                <p>  العليا، تبوك 47911</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('28.384376, 36.583744')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>     
+              </ion-item>
+          <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/hail.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>حائل </h2>
+                <p>  7533، الوسيطاء، حائل 55421 3258،</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('27.494859, 41.678395')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>        
+           </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/duba.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>ضبا </h2>
+                <p>  محمد بن عبدالوهاب، Duba 49313</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('27.340765, 35.720826')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>              </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/skaka.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>سكاكا </h2>
+                <p>  سكاكا 72373</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('29.894878, 40.096144')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>         
+           </ion-item>
+     
+      </ion-list>
+      <ion-list *ngSwitchCase="'sharkia'">
+          <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/dammam1.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>الدمام </h2>
+                <p>  2526 طريق الخليج، الشاطئ الغربي، 6087, الدمام 32413 6087</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('26.457038, 50.114659')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>           
+    
+              </ion-item>
+          <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/dammam2.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>الدمام 2 </h2>
+                <p>  6181 طريق الملك عبدالعزيز، 3784 King Fahd Ibn، الدمام 32263 </p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('26.399160, 50.044066')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>      
+           </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/hassa.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>الاحساء </h2>
+                <p>  Al Hufuf and Al Mubarraz 6955 Ad Dammam الهفوف, المبرز 36342 </p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('25.400280, 49.576196')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>      
+          </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/hafer.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>حفر الباطن </h2>
+                <p>  طريق عثمان بن عفان، فليج، حفر الباطن 39921 </p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('28.427138, 46.006285')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>             </ion-item>
+      </ion-list>
+      <ion-list *ngSwitchCase="'janobia'">
+          <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/khamis.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2>خميس مشيط </h2>
+                <p>  15, ضمك، خميس مشيط 62461</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('18.283842, 42.731172')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>          
+           </ion-item>
+          <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/abha.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2> ابها </h2>
+                <p>  طريق أبو هريرة،، أبها</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('18.222399, 42.561310')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>       
+           </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/bisha.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2> بيشة </h2>
+                <p>  بيشة 67716</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('20.011739, 42.605967')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>     
+          </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/muhail.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2> محايل </h2>
+                <p>  محايل عسير 63718</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('18.542642, 42.064753')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>            </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/sabetElaya.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2> سبت العلايا </h2>
+                <p>  المشائعة، سبت العلايه 67542</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('19.556024, 41.955956')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>      
+           </ion-item>
+           <ion-item>
+            <ion-card style="background:#4b7ebd; height:250px;">
+
+              <img style="height: 150px;" src="img/../../../assets/imgs/sabetElaya.jpg">
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item>
+                <ion-icon name="md-pin" item-start large></ion-icon>
+                <h2> جازان </h2>
+                <p>  مخطط 5، السويس،</p>
+              </ion-item>
+            
+            
+              <ion-item>
+                
+                <button ion-button icon-start clear item-end (click)="GoTo('16.928804, 42.553768')">
+                  <ion-icon name="navigate" ></ion-icon>
+                  الذهاب الى الفرع
+                </button>
+              </ion-item>
+              
+            </ion-card>            </ion-item>
+      </ion-list>
+    </div>
 </ion-content>

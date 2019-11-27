@@ -16,8 +16,11 @@ import { GeolocationOptions, Geolocation} from '@ionic-native/geolocation';
   templateUrl: 'branches-map.html',
 })
 export class BranchesMapPage {
-
+  pet:any;
   constructor(public navCtrl: NavController,public toastCtrl: ToastController,private launchNavigator: LaunchNavigator, public navParams: NavParams) {
+    
+    
+    this.pet = "riad";
     let geoOptions: GeolocationOptions = {
       enableHighAccuracy:true,
       timeout:500000,
@@ -42,7 +45,7 @@ export class BranchesMapPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad BranchesMapPage');
   }
-GoTo(){
+GoTo(location){
 
   
   let options: LaunchNavigatorOptions = {
@@ -50,7 +53,7 @@ GoTo(){
     app:this.launchNavigator.APP.GOOGLE_MAPS
   };
   
-  this.launchNavigator.navigate('24.593854, 46.632998', options)
+  this.launchNavigator.navigate(location, options)
     .then(
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)

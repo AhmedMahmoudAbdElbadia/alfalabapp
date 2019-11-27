@@ -94,7 +94,7 @@ this.ValidatToast();
   
   DoneAddToast() {
     let toast = this.toastCtrl.create({
-      message: 'شكرا لك تم ارسال طلب الزيارة المنزلية وسيتم التواصل معك',
+      message: 'شكرا لك تم ارسال الشكوى او الاقتراح وسيتم التواصل معك',
       duration: 3000,
       cssClass:"color:red"
     });
