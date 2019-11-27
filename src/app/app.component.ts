@@ -39,7 +39,7 @@ export class MyApp {
       { title: ' الشكاوي والمقترحات', component: ComplaintsPage,icon:"information-circle" },
       { title: 'اتصل بنا', component: ContactUsPage,icon:"call" },
       { title: 'صفحتنا على الانستجرام', component: AlfaInstaPage,icon:"logo-instagram" },
-      { title: 'تواصل مع موظفنا', component: ChatRoomPage,icon:"logo-instagram" },
+      // { title: 'تواصل مع موظفنا', component: ChatRoomPage,icon:"logo-instagram" },
     
     ];
     if (this.platform.is('cordova')) {
