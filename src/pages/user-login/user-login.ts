@@ -40,7 +40,7 @@ export class UserLogin {
   ionViewDidLoad() {
      if(this.auth.afAuth.auth.currentUser==null){
         this.menuCtrl.enable(false, 'myMenu');
-        console.log("اتعملت")
+        
        }
     console.log('ionViewDidLoad UserLogin');
   }

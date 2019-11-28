@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, ActionSheetController,Tabs } from 'ionic-angular';
+import { NavController, ActionSheetController,Tabs, NavParams } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { ModalPage } from './../modal/modal'
 import { InAppBrowser } from '@ionic-native/in-app-browser';
@@ -21,16 +21,20 @@ export class HomePage {
   tab3: any;
   tab2
   tab1
-  navParams: any;
+ 
   @ViewChild('myTabs') tabRef: Tabs;
+  user: any;
 
   
-  constructor(public navCtrl: NavController,public actionSheetCtrl: ActionSheetController,private iab: InAppBrowser) {
+  constructor(public navCtrl: NavController,public actionSheetCtrl: ActionSheetController,private iab: InAppBrowser,public navParams: NavParams) {
   //   let v :MyApp
   //  v.menuCtrl.enable(false, 'myMenu');
     this.tab1 = MainPage;
   this.tab2 = AboutalfaPage;
   this.tab3=BranchesMapPage
+
+ this.user= this.navParams.get('user');
+ console.log(this.user);
   }
   presentActionSheet() {
     const actionSheet = this.actionSheetCtrl.create({
