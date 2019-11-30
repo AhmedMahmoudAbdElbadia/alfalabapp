@@ -15,6 +15,8 @@ import { UserLogin } from '../pages/user-login/user-login';
 
 import { AuthService } from '../services/auth.service';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
+import {timer} from 'rxjs/observable/timer';
+import { from } from 'rxjs/observable/from';
 @Component({
   templateUrl: 'app.html'
 })
@@ -26,6 +28,7 @@ export class MyApp {
   pages: Array<{title: string, component: any,icon:string}>;
   signal_app_id:string  ='32d2282c-ea9c-4ce9-a0f2-ecd6bdf20992';
   firebase_id:string='870640029892';
+  showsplash= true;
   constructor(public platform: Platform, private auth: AuthService,public menuCtrl: MenuController,public statusBar: StatusBar, public splashScreen: SplashScreen,OneSignal:OneSignal) {
 
     this.initializeApp();
@@ -77,6 +80,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      timer(3000).subscribe(()=>this.showsplash=false)
       this.rootPage=UserLogin;
     });
   }
