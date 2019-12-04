@@ -72,7 +72,13 @@ return this.http.post(this.Complaints+'?apiKey='+this.apiKey,JSON.stringify(Comp
 }
 
 
+GetUserByPhoneNum(PhoneNum){
+    // return this.http.get(this.Users+'?q={"PhoneNum":'+phonenum+'}'+'?apiKey='+this.apiKey).map(res => res.json());
+    return this.http.get(this.Users+'?q={"PhoneNum": "'+PhoneNum+'"}'+'&c=fales'+'&apiKey='+this.apiKey).map(res => res.json());
 
+    return this.http.get(this.Users+'?apiKey='+this.apiKey).map(res => res.json());
+
+}
 
 
 }

@@ -17,6 +17,7 @@ export class UserSignup {
   Email: AbstractControl;
   Password: AbstractControl;
   Name: AbstractControl;
+  PhoneNum:AbstractControl;
  public form: FormGroup;
   loginError: any;
   loginErrorcode:any;
@@ -28,7 +29,8 @@ export class UserSignup {
     this.form = this.formBuilder.group({
       Email: ['', Validators.required],
       Password: ['', Validators.required],
-      Name:['',Validators.required]
+      Name:['',Validators.required],
+      PhoneNum:['',Validators.required]
 
     
     });
@@ -36,6 +38,7 @@ export class UserSignup {
     this.Email=this.form.controls['Email'];
     this.Password=this.form.controls['Password'];
     this.Name=this.form.controls['Name'];
+    this.PhoneNum=this.form.controls['PhoneNum'];
   }
 
   ionViewDidLoad() {
@@ -51,12 +54,12 @@ export class UserSignup {
 
   signUp(){
         
-  if(!this.Email.hasError('required')&&!this.Email.errors&&!this.Password.hasError('required')&&!this.Name.hasError('required')){
+  if(!this.Email.hasError('required')&&!this.Email.errors&&!this.Password.hasError('required')&&!this.Name.hasError('required')&&!this.PhoneNum.hasError('required')){
     let credentials= {
     Email: this.Email.value,
     Password: this.Password.value,
-    Name:this.Name.value
-    
+    Name:this.Name.value,
+    PhoneNum:this.PhoneNum.value
  
     }
     console.log(credentials);

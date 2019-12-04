@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
-
+import {  AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
 import { Storage } from '@ionic/storage';
 import { UserSignup } from '../user-signup/user-signup';
 import { UserForgotpassword } from '../user-forgotpassword/user-forgotpassword';
@@ -17,23 +17,26 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
   templateUrl: 'user-login.html',
 })
 export class UserLogin {
-  Email: AbstractControl;
+  PhoneNum: AbstractControl;
   Password: AbstractControl;
  public form: FormGroup;
  loginError: string;
   user: any;
   facebook: any;
+  data: any;
+  userdata: any;
+  userEmail: string;
   
-  constructor(public navCtrl: NavController, private storage:Storage,public toastCtrl: ToastController,public menuCtrl: MenuController,private fb: Facebook,public navParams: NavParams,private formBuilder: FormBuilder,private auth: AuthService) {
+  constructor(public navCtrl: NavController, private storage:Storage,public AlfaLabServices:AlfaLabServices,public toastCtrl: ToastController,public menuCtrl: MenuController,private fb: Facebook,public navParams: NavParams,private formBuilder: FormBuilder,private auth: AuthService) {
   
     this.form = this.formBuilder.group({
-      Email: ['', Validators.required],
+      PhoneNum: ['', Validators.required],
       Password: ['', Validators.required],
 
     
     });
 
-    this.Email=this.form.controls['Email'];
+    this.PhoneNum=this.form.controls['PhoneNum'];
     this.Password=this.form.controls['Password'];
   }
 
@@ -99,17 +102,25 @@ export class UserLogin {
 }
 Login(){
    
-  if(!this.Email.hasError('required')&&!this.Password.hasError('required')){
+  if(!this.PhoneNum.hasError('required')&&!this.Password.hasError('required')){
     let credentials= {
-      Email: this.Email.value,
+      PhoneNum: this.PhoneNum.value,
       Password: this.Password.value,
-      
-   
       }
       console.log(credentials);
+      this.AlfaLabServices.GetUserByPhoneNum(credentials.PhoneNum).subscribe(data =>{
+      this.userEmail=data[0].Email;
+      
+      console.log("user data is "+ this.userEmail);
+      }
+       
+         
+
+      )
+        // console.log("user data is "+ this.userdata);
     //  let data = this.form.value;
 
-		if (!credentials.Email) {
+		if (!credentials.PhoneNum) {
 			return;
 		}
 
@@ -118,7 +129,7 @@ Login(){
 		// 	password: data.password
     // };
     
-		this.auth.signInWithEmail(credentials.Email,credentials.Password)
+		this.auth.signInWithEmail(String(this.userEmail),credentials.Password)
 			.then(
         res => {  
         
