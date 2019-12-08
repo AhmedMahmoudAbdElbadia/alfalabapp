@@ -12,6 +12,7 @@ import { OfferPage } from '../offer/offer';
 import { ClacMedicalPage } from '../clac-medical/clac-medical';
 import { AuthService } from '../../services/auth.service';
 import { TamanyOffersPage } from '../tamany-offers/tamany-offers';
+import { AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
 
 /**
  * Generated class for the MainPage page.
@@ -29,9 +30,13 @@ export class MainPage {
   name: any;
   user: any;
   useremail: Promise<any>;
+  sliderimg: any;
   
-  constructor(public navCtrl: NavController,public storage : Storage,public navParams: NavParams,public actionSheetCtrl: ActionSheetController,private auth: AuthService,private iab: InAppBrowser,private socket:Socket) {
- 
+  constructor(public navCtrl: NavController,public storage : Storage,public alfaLabservices : AlfaLabServices,public navParams: NavParams,public actionSheetCtrl: ActionSheetController,private auth: AuthService,private iab: InAppBrowser,private socket:Socket) {
+ this.alfaLabservices.getslider().subscribe(img =>{
+this.sliderimg= img;
+
+ })
  this.useremail =this.storage.get('useremail')
  console.log(this.useremail);
   }

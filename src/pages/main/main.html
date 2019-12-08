@@ -20,19 +20,13 @@
         <ion-tab tabIcon="flame" tabTitle="Fire" [root]="tab3"></ion-tab>
         <ion-tab tabIcon="magnet" tabTitle="Force" [root]="tab4"></ion-tab>
       </ion-tabs> -->
-    <ion-slides #slider  autoplay="10000" loop="true"  style="height:150px; width:100%;  ">
+    <ion-slides #slider *ngIf="sliderimg && sliderimg.length" autoplay="10000" loop="true"  style="height:150px; width:100%;  ">
 
-        <ion-slide style="height:100%; border-radius:190px;">
-          <img src="../../assets/imgs/slid1.jpg" />
+        <ion-slide *ngFor="let img of sliderimg" style="height:100%; border-radius:190px;">
+          
+          <img src="{{img.imgurl}}" />
         </ion-slide>
-      
-        <ion-slide style="height:100%">
-          <img src="../../assets/imgs/slid2.jpg" />
-        </ion-slide>
-      
-        <ion-slide style="height:100%">
-          <img src="../../assets/imgs/slid3.jpg" />
-        </ion-slide>
+    
       
       </ion-slides>
       <!-- <ion-input type="text" [(ngModel)]="name" ></ion-input>
