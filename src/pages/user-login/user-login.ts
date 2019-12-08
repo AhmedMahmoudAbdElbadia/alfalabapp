@@ -10,6 +10,8 @@ import { AbstractControl, FormBuilder, Validators, FormGroup } from '@angular/fo
 import { AuthService } from '../../services/auth.service';
 import { MyApp } from '../../app/app.component';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+// import undefined from 'firebase/empty-import';
+// import undefined from 'firebase/empty-import';
 
 @IonicPage()
 @Component({
@@ -109,7 +111,19 @@ Login(){
       }
       console.log(credentials);
       this.AlfaLabServices.GetUserByPhoneNum(credentials.PhoneNum).subscribe(data =>{
+    
+    if(data[0] != undefined){
       this.userEmail=data[0].Email;
+    }
+    else{
+      let toast = this.toastCtrl.create({
+        message: 'هذا رقم غير مسجل من فضلك قم بالتسجيل ',
+        duration: 3000,
+        cssClass:"color:red"
+      });
+      toast.present();
+    }
+      
       
       console.log("user data is "+ this.userEmail);
       }
@@ -117,17 +131,17 @@ Login(){
          
 
       )
+
         // console.log("user data is "+ this.userdata);
     //  let data = this.form.value;
 
-		if (!credentials.PhoneNum) {
-			return;
-		}
 
 		// let credentials = {
 		// 	email: data.email,
 		// 	password: data.password
     // };
+    if(this.userEmail!=undefined){
+
     
 		this.auth.signInWithEmail(String(this.userEmail),credentials.Password)
 			.then(
@@ -173,11 +187,12 @@ Login(){
 
 //  this.DoneAddToast();
         }
- else{
+ 
+}
+else{
  this.ValidatToast();
  }
 }
-
 ValidatToast() {
   let toast = this.toastCtrl.create({
     message: 'من فضلك التأكد من ادخال البيانات كاملة',

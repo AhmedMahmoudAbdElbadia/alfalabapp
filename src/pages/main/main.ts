@@ -11,6 +11,7 @@ import { SampleWayPage } from '../sample-way/sample-way';
 import { OfferPage } from '../offer/offer';
 import { ClacMedicalPage } from '../clac-medical/clac-medical';
 import { AuthService } from '../../services/auth.service';
+import { TamanyOffersPage } from '../tamany-offers/tamany-offers';
 
 /**
  * Generated class for the MainPage page.
@@ -112,7 +113,7 @@ export class MainPage {
     
   }
   GoToTamany(){
-    this.navCtrl.push(OfferPage)
+    this.navCtrl.push(TamanyOffersPage)
   }
   
   GoToSampleWay(){

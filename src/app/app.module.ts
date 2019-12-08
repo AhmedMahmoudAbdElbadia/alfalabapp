@@ -68,6 +68,7 @@ import { Facebook } from '@ionic-native/facebook/ngx';
 // import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
+import { TamanyOffersPage } from '../pages/tamany-offers/tamany-offers';
 // import {File} from '@ionic-native/file/ngx';
 // import {FileTransfer} from '@ionic-native/file-transfer/ngx';
 // import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
@@ -86,6 +87,7 @@ const config :SocketIoConfig ={url: 'http://localhost:3001', options:{}}
     MainPage,
     ChatRoomPage,
     OfferPage,
+    TamanyOffersPage,
     ClacMedicalPage,
     CalcBmiPage,
     CalcBmrPage,
@@ -118,6 +120,7 @@ const config :SocketIoConfig ={url: 'http://localhost:3001', options:{}}
     MainPage,
     ChatRoomPage,
     OfferPage,
+    TamanyOffersPage,
     ClacMedicalPage,
     CalcBmiPage,
     GallaryPage,

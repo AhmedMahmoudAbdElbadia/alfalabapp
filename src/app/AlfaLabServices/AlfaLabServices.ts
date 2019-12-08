@@ -21,6 +21,7 @@ export class AlfaLabServices{
     instgramfeed: string;
     tamany: any;
     Users: any;
+    offers: string;
     static get parameters() {
     return [Http];
 }
@@ -32,6 +33,7 @@ this.apiKey='klpJFMrBlAESRbeHMJd0fMG16e6e_8ik';
 this.VisitHome ='https://api.mlab.com/api/1/databases/alfalabdb/collections/visithome';
 this.Complaints='https://api.mlab.com/api/1/databases/alfalabdb/collections/complaints';
 this.tamany='https://api.mlab.com/api/1/databases/alfalabdb/collections/tamany';
+this.offers='https://api.mlab.com/api/1/databases/alfalabdb/collections/offers';
 this.instgramfeed ='https://api.instagram.com/v1/users/self/media/recent/?access_token=5557661284.1677ed0.5bd6458e07514a87876f61df56f6d3ac'
 this.Users='https://api.mlab.com/api/1/databases/alfalabdb/collections/users'
 
@@ -50,7 +52,11 @@ private _url= 'assets/country.json';
         return this.http.get(this.tamany+'?apiKey='+this.apiKey).map(res => res.json());
         
     }
-
+    getOffers(){
+    
+        return this.http.get(this.offers+'?apiKey='+this.apiKey).map(res => res.json());
+        
+    }
 addVisitHome(visithome){
 var headers=new Headers();
 headers.append('Content-Type','application/json');

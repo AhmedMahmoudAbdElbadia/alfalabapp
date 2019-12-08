@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-
-import { ModalPage } from '../modal/modal';
 import { AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
-
-
-
+import { ModalPage } from '../modal/modal';
 
 /**
- * Generated class for the OfferPage page.
+ * Generated class for the TamanyOffersPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -16,10 +12,10 @@ import { AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
 
 @IonicPage()
 @Component({
-  selector: 'page-offer',
-  templateUrl: 'offer.html',
+  selector: 'page-tamany-offers',
+  templateUrl: 'tamany-offers.html',
 })
-export class OfferPage {
+export class TamanyOffersPage {
   hideitem : boolean
   buttonplus:boolean
   buttonclose:boolean
@@ -36,11 +32,12 @@ export class OfferPage {
     this.buttonplus=true;
     this.buttonclose=false;
 
-    this.alfaLabservices.getOffers().subscribe(data=>{
+    this.alfaLabservices.gettamany().subscribe(data=>{
   // this.tamanytests= data.TamanySilver.Tests;
  this.tamany=data
 
-
+ console.log('Tamany',this.tamany);
+   
 //       for (let index = 0; index <data.length; index++) {
 //         data[index].info.Tests
 //         for (let index2 = 0; index2 <data[index].info.Tests.length; index2++) {
@@ -62,31 +59,31 @@ export class OfferPage {
         
       console.log(data);
     })
-    this.lists=[
-      {
-        name:"باقة طمني الفضية",
-        buttonplus:true,
-        buttonclose:false,
-        hideitem:false,
-        img:"../../assets/imgs/Tamany-Silver.jpg"
-      },
-      {
-        name:"باقة طمني الذهبية",
-        buttonplus:true,
-        buttonclose:false,
-        hideitem:false,
-        img:"../../assets/imgs/Tamany-Gold.jpg"
+    // this.lists=[
+    //   {
+    //     name:"باقة طمني الفضية",
+    //     buttonplus:true,
+    //     buttonclose:false,
+    //     hideitem:false,
+    //     img:"../../assets/imgs/Tamany-Silver.jpg"
+    //   },
+    //   {
+    //     name:"باقة طمني الذهبية",
+    //     buttonplus:true,
+    //     buttonclose:false,
+    //     hideitem:false,
+    //     img:"../../assets/imgs/Tamany-Gold.jpg"
         
-      },
-      {
-        name:"باقة طمني الالماسية",
-        buttonplus:true,
-        buttonclose:false,
-        hideitem:false,
-        img:"../../assets/imgs/Tamany-Daimond.jpg"
+    //   },
+    //   {
+    //     name:"باقة طمني الالماسية",
+    //     buttonplus:true,
+    //     buttonclose:false,
+    //     hideitem:false,
+    //     img:"../../assets/imgs/Tamany-Daimond.jpg"
         
-      }
-    ]
+    //   }
+    // ]
 
   }
 
@@ -141,3 +138,6 @@ presentModal(name) {
 //   transfer.download('assets/profile.pdf',)
 // }
 }
+
+
+
