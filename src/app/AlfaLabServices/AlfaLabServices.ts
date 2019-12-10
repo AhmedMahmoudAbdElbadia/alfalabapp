@@ -93,5 +93,13 @@ GetUserByPhoneNum(PhoneNum){
 
 }
 
+GetUserByEmail(email){
+    // return this.http.get(this.Users+'?q={"PhoneNum":'+phonenum+'}'+'?apiKey='+this.apiKey).map(res => res.json());
+    return this.http.get(this.Users+'?q={"Email": "'+email+'"}'+'&c=fales'+'&apiKey='+this.apiKey).map(res => res.json());
+
+    return this.http.get(this.Users+'?apiKey='+this.apiKey).map(res => res.json());
+
+}
+
 
 }

@@ -30,7 +30,7 @@ export class MyApp {
   firebase_id:string='870640029892';
   showsplash= true;
   constructor(public platform: Platform, private auth: AuthService,public menuCtrl: MenuController,public statusBar: StatusBar, public splashScreen: SplashScreen,OneSignal:OneSignal) {
-
+    this.rootPage=UserLogin;
     this.initializeApp();
  
  
@@ -81,7 +81,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       timer(3000).subscribe(()=>this.showsplash=false)
-      this.rootPage=UserLogin;
+      
     });
   }
 

@@ -8,7 +8,7 @@ import { BranchesMapPage } from '../branches-map/branches-map';
 import { MainPage } from '../main/main';
 import { AboutalfaPage } from '../aboutalfa/aboutalfa';
 import { MyApp } from '../../app/app.component';
-
+import {  AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
 
 
  
@@ -24,9 +24,11 @@ export class HomePage {
  
   @ViewChild('myTabs') tabRef: Tabs;
   user: any;
+  userName: any;
+  userEmail: any;
 
   
-  constructor(public navCtrl: NavController,public actionSheetCtrl: ActionSheetController,private iab: InAppBrowser,public navParams: NavParams) {
+  constructor(public navCtrl: NavController,public AlfaLabServices:AlfaLabServices,public actionSheetCtrl: ActionSheetController,private iab: InAppBrowser,public navParams: NavParams) {
   //   let v :MyApp
   //  v.menuCtrl.enable(false, 'myMenu');
     this.tab1 = MainPage;
@@ -34,8 +36,29 @@ export class HomePage {
   this.tab3=BranchesMapPage
 
  this.user= this.navParams.get('user');
- console.log(this.user);
-  }
+ if(this.user!=undefined){
+ console.log(this.user.email);
+ this.userEmail = this.user.email;
+ this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(data =>{
+  
+    this.userName=data[0].Name;
+  
+  
+}
+ )
+   console.log("user Name is "+ this.userName);
+
+
+
+}
+else{
+
+}
+} 
+
+
+
+  
   presentActionSheet() {
     const actionSheet = this.actionSheetCtrl.create({
       title: 'النتائج',
