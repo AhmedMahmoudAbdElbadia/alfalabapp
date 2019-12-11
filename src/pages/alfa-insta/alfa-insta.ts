@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {  AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
+import {  AlfaLabServices } from '../../services/AlfaLabServices';
 import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { InAppBrowser, InAppBrowserObject } from '@ionic-native/in-app-browser/';
 import { Platform } from 'ionic-angular/platform/platform';

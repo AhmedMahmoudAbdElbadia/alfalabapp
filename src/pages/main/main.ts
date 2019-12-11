@@ -12,7 +12,7 @@ import { OfferPage } from '../offer/offer';
 import { ClacMedicalPage } from '../clac-medical/clac-medical';
 import { AuthService } from '../../services/auth.service';
 import { TamanyOffersPage } from '../tamany-offers/tamany-offers';
-import { AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
+import { AlfaLabServices } from '../../services/AlfaLabServices';
 
 /**
  * Generated class for the MainPage page.

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 import { ModalPage } from '../modal/modal';
-import { AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
+import { AlfaLabServices } from '../../services/AlfaLabServices';
 
 
 

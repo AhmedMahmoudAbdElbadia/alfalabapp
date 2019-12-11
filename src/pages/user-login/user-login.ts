@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
-import {  AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
+import {  AlfaLabServices } from '../../services/AlfaLabServices';
 import { Storage } from '@ionic/storage';
 import { UserSignup } from '../user-signup/user-signup';
 import { UserForgotpassword } from '../user-forgotpassword/user-forgotpassword';

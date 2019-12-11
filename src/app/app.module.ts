@@ -25,7 +25,7 @@ import { OfferPage } from '../pages/offer/offer';
 import { ClacMedicalPage } from '../pages/clac-medical/clac-medical';
 import { CalcBmiPage } from '../pages/calc-bmi/calc-bmi';
 import { CalcBmrPage } from '../pages/calc-bmr/calc-bmr';
-import { AlfaLabServices } from './AlfaLabServices/AlfaLabServices';
+import { AlfaLabServices } from '../services/AlfaLabServices';
 import { Http, HttpModule, ConnectionBackend } from '@angular/http';
 import { GallaryPage } from '../pages/gallary/gallary';
 import { ComplaintsPage } from '../pages/complaints/complaints';

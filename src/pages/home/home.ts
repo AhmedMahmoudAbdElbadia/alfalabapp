@@ -8,7 +8,7 @@ import { BranchesMapPage } from '../branches-map/branches-map';
 import { MainPage } from '../main/main';
 import { AboutalfaPage } from '../aboutalfa/aboutalfa';
 import { MyApp } from '../../app/app.component';
-import {  AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
+import {  AlfaLabServices } from '../../services/AlfaLabServices';
 
 
  

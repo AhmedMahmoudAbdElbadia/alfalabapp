@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {  AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
+import {  AlfaLabServices } from '../../services/AlfaLabServices';
 /**
  * Generated class for the CalcBmiPage page.
  *

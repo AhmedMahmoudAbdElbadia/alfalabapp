@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {  AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
+import {  AlfaLabServices } from '../../services/AlfaLabServices';
 import { MainPage } from '../main/main';
 import { HomePage } from '../home/home';
 /**

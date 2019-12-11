@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup,AbstractControl } from '@angular/forms';
-import {  AlfaLabServices } from '../../app/AlfaLabServices/AlfaLabServices';
+import {  AlfaLabServices } from '../../services/AlfaLabServices';
 import { MainPage } from '../main/main';
 class branch {
   public id: number;
