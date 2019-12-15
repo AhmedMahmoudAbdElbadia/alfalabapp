@@ -46,29 +46,37 @@ export class VisitHomePage {
   public form : FormGroup;
   HomePage:HomePage;
   constructor(public navCtrl: NavController,private alertCtrl: AlertController, private auth: AuthService,public navParams: NavParams,private formBuilder: FormBuilder,public AlfaLabServices:AlfaLabServices,public toastCtrl: ToastController) {
+this.AlfaLabServices.getbrancforvisit().subscribe(branches=>{
+this.branches=branches
+})
 
-this.branches=[
-{id:1,name:"الرياض"},
-{id:2,name:"الدمام"},
-{id:3,name:"ابها"},
-{id:4,name:"خميس مشيط"},
-{id:5,name:"بريده"},
-{id:6,name:"بيشة"},
-{id:7,name:"سبت العلايا"},
-{id:8,name:"جيزان"},
-{id:9,name:"محايل"},
-{id:10,name:"الاحساء"},
-{id:11,name:"تبوك"},
-]
-    this.tests=[
-      {id:1,name:"التحليل الشامل"},
-{id:2,name:"الغدة الدرقية"},
-{id:3,name:"تساقط الشعر"},
-{id:4,name:"فيتامين د"},
-{id:5,name:"فيتامين ب"},
-{id:6,name:"الامراض الجنسية المعديه"},
+this.AlfaLabServices.gettestsforvisit().subscribe(test=>{
+this.tests=test
 
-    ]
+
+})
+// this.branches=[
+// {id:1,name:"الرياض"},
+// {id:2,name:"الدمام"},
+// {id:3,name:"ابها"},
+// {id:4,name:"خميس مشيط"},
+// {id:5,name:"بريده"},
+// {id:6,name:"بيشة"},
+// {id:7,name:"سبت العلايا"},
+// {id:8,name:"جيزان"},
+// {id:9,name:"محايل"},
+// {id:10,name:"الاحساء"},
+// {id:11,name:"تبوك"},
+// ]
+//     this.tests=[
+//       {id:1,name:"التحليل الشامل"},
+// {id:2,name:"الغدة الدرقية"},
+// {id:3,name:"تساقط الشعر"},
+// {id:4,name:"فيتامين د"},
+// {id:5,name:"فيتامين ب"},
+// {id:6,name:"الامراض الجنسية المعديه"},
+
+//     ]
     this.form = this.formBuilder.group({
       PaintName: ['', Validators.required],
       ReporterPhoneNum: ['', Validators.required],

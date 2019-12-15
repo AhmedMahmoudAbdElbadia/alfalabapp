@@ -14,7 +14,7 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 // import undefined from 'firebase/empty-import';
 import { Events } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-
+import * as firebase from 'firebase/app';
 @IonicPage()
 @Component({
   selector: 'page-user-login',
@@ -60,50 +60,6 @@ export class UserLogin {
     this.navCtrl.setRoot(HomePage);
   }
 
-//   loginFb(){
-//     // Login with permissions
-//     this.fb.login(['public_profile', 'user_photos', 'email', 'user_birthday'])
-//     .then( (res: FacebookLoginResponse) => {
-
-//         // The connection was successful
-//         if(res.status == "connected") {
-
-//             // Get user ID and Token
-//             var fb_id = res.authResponse.userID;
-//             var fb_token = res.authResponse.accessToken;
-
-//             // Get user infos from the API
-//             this.fb.api("/me?fields=name,gender,birthday,email", []).then((user) => {
-
-//                 // Get the connected user details
-//                 var gender    = user.gender;
-//                 var birthday  = user.birthday;
-//                 var name      = user.name;
-//                 var email     = user.email;
-
-//                 console.log("=== USER INFOS ===");
-//                 console.log("Gender : " + gender);
-//                 console.log("Birthday : " + birthday);
-//                 console.log("Name : " + name);
-//                 console.log("Email : " + email);
-
-//                 // => Open user session and redirect to the next page
-
-//             });
-
-//         } 
-//         // An error occurred while loging-in
-//         else {
-
-//             console.log("An error occurred...");
-
-//         }
-
-//     })
-//     .catch((e) => {
-//         console.log('Error logging into Facebook', e);
-//     });
-// }
 Login(){
    
   if(!this.PhoneNum.hasError('required')&&!this.Password.hasError('required')){
@@ -117,43 +73,43 @@ Login(){
     if(data[0] != undefined){
       this.userEmail=data[0].Email;
       if(this.userEmail!=undefined){
-
-    
         this.auth.signInWithEmail(String(this.userEmail),credentials.Password)
-          .then(
-            res => {  
-            
-              this.auth.afAuth.authState.subscribe(user=>{
-                this.user=user
-                console.log(this.user.email) 
-                this.storage.set('useremail',this.user.email)
-                this.events.publish('User email',this.userEmail );
-                 this.navCtrl.setRoot(HomePage,{user: this.user});
-                
-              })
+        .then(
+          res => {  
+         
+            this.auth.afAuth.authState.subscribe(user=>{
+              this.user=user
+              console.log(this.user.email) 
+              this.storage.set('useremail',this.user.email)
+              this.events.publish('User email',this.userEmail );
+                firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+               this.navCtrl.setRoot(HomePage,{user: this.user});
+
+            })
+        
+        
+   this.menuCtrl.enable(true, 'myMenu');
+   
+          }
+        ).catch(error=>{
+  
+          // Handle Errors here.
+     console.log(error.code);
           
-          
-     this.menuCtrl.enable(true, 'myMenu');
-     
-            }
-          ).catch(error=>{
+         console.log(error.message);
+         if(error.code=="auth/user-not-found" ||error.code=="auth/invalid-email"|| error.code=="auth/wrong-password"){
+          let toast = this.toastCtrl.create({
+            message: 'خطأ في اسم المستخدم او كلمة المرور',
+            duration: 3000,
+            cssClass:"color:red"
+          });
+          toast.present();
+         }
+         
     
-            // Handle Errors here.
-       console.log(error.code);
-            
-           console.log(error.message);
-           if(error.code=="auth/user-not-found" ||error.code=="auth/invalid-email"|| error.code=="auth/wrong-password"){
-            let toast = this.toastCtrl.create({
-              message: 'خطأ في اسم المستخدم او كلمة المرور',
-              duration: 3000,
-              cssClass:"color:red"
-            });
-            toast.present();
-           }
-           
-      
-            });;
-    
+          });
+       
+   
     
             }
     }

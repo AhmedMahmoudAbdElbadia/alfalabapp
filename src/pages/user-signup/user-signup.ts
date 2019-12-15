@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, MenuController, Events } from 'ionic-angular';
 import {  AlfaLabServices } from '../../services/AlfaLabServices';
 import { UserLogin } from '../user-login/user-login';
 import { UserForgotpassword } from '../user-forgotpassword/user-forgotpassword';
@@ -23,7 +23,7 @@ export class UserSignup {
   loginErrorcode:any;
   resualt: any;
  
-  constructor(public navCtrl: NavController,public AlfaLabServices:AlfaLabServices,public toastCtrl: ToastController,public menuCtrl: MenuController ,public navParams: NavParams,private formBuilder: FormBuilder,private auth: AuthService) {
+  constructor(public navCtrl: NavController,public events: Events,public AlfaLabServices:AlfaLabServices,public toastCtrl: ToastController,public menuCtrl: MenuController ,public navParams: NavParams,private formBuilder: FormBuilder,private auth: AuthService) {
     
 
     this.form = this.formBuilder.group({
@@ -84,7 +84,10 @@ this.AlfaLabServices.addUser(credentials).subscribe(data=>
 
 		this.auth.signUpWithEmail(credentials.Email,credentials.Password)
 			.then(
-        () =>{ this.navCtrl.setRoot(HomePage)
+        () =>{ 
+          this.userEmail=credentials.Email;
+          this.events.publish('User email',this.userEmail );
+          this.navCtrl.setRoot(HomePage)
           
           this.menuCtrl.enable(true, 'myMenu');
         
@@ -129,6 +132,9 @@ this.AlfaLabServices.addUser(credentials).subscribe(data=>
  else{
  this.ValidatToast();
  }
+  }
+  userEmail(arg0: string, userEmail: any) {
+    throw new Error("Method not implemented.");
   }
 
   DoneAddToast() {

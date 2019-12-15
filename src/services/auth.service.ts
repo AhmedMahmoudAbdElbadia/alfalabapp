@@ -11,6 +11,8 @@ export class AuthService {
 		afAuth.authState.subscribe(user => {
 			this.user = user;
 		});
+
+		firebase.auth.Auth.Persistence
 	}
 
 	signInWithEmail(email:string , password :string) {

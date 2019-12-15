@@ -19,6 +19,7 @@ import {timer} from 'rxjs/observable/timer';
 import { from } from 'rxjs/observable/from';
 import {  AlfaLabServices } from '../services/AlfaLabServices';
 import { Events } from 'ionic-angular';
+import firebase from 'firebase/app';
 
 @Component({
   templateUrl: 'app.html'
@@ -36,28 +37,42 @@ export class MyApp {
   userEmail: any;
   userName: any;
   logstate:boolean
-  constructor(public platform: Platform,public events: Events, public AlfaLabServices:AlfaLabServices,private auth: AuthService,public menuCtrl: MenuController,public statusBar: StatusBar, public splashScreen: SplashScreen,OneSignal:OneSignal) {
-      if(this.auth.afAuth.auth.currentUser!=null){
-        this.events.subscribe('User email', (user) => {
-          // user and time are the same arguments passed in `events.publish(user, time)`
-          console.log('Welcome', user);
-          if(user!=null){ 
-             this.userEmail=user;
-        
-          this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(r=>{
-            this.userName=r[0].Name;
-            console.log('app comp username '+this.userName);  
-            this.logstate=true; 
-            this.nav.setRoot(HomePage);   
-          })
-        } 
-        });
+  constructor(public platform: Platform,public events: Events,  public AlfaLabServices:AlfaLabServices,private auth: AuthService,public menuCtrl: MenuController,public statusBar: StatusBar, public splashScreen: SplashScreen,OneSignal:OneSignal) {
+    this.logstate=false;
+    
+//     firebase.auth().onAuthStateChanged(user=>{
+//    if (user){
+//     this.events.subscribe('User email', (user) => {
+//       // user and time are the same arguments passed in `events.publish(user, time)`
+//       console.log('Welcome', user);
+//       if(user!=null){ 
+//          this.userEmail=user;
+    
+//       this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(r=>{
+//         this.userName=r[0].Name;
+//         console.log('app comp username '+this.userName);  
+//         this.logstate=true; 
+//         this.nav.setRoot(HomePage);   
+//       })
+//     } 
+//     });
+//    }
 
+// else{
+
+//    this.rootPage=UserLogin;
+// }
+
+
+//     })
+  
       
-      }
-      else{
-          this.rootPage=UserLogin;
-      }
+       
+
+    
+      
+         
+      
    
 
     this.initializeApp();
@@ -129,6 +144,7 @@ export class MyApp {
       this.auth.afAuth.auth.signOut().then(function() {
         this.user=null;
         this.logstate=false;    
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
 
     }).catch(function(error) {
       console.log(error)
@@ -139,26 +155,56 @@ export class MyApp {
     }
   initializeApp() {
     this.platform.ready().then(() => {
-      if(this.auth.afAuth.auth.currentUser==null){
-        this.menuCtrl.enable(false, 'myMenu');
+          this.splashScreen.hide();
+    firebase.auth().onAuthStateChanged(user=>{
+      if (user){
+       
+         // user and time are the same arguments passed in `events.publish(user, time)`
+         console.log('Welcome', user);
+         
+            this.userEmail=this.auth.afAuth.auth.currentUser.email;
+       
+         this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(r=>{
+           this.userName=r[0].Name;
+           console.log('app comp username '+this.userName);  
+           this.logstate=true; 
+           this.nav.setRoot(HomePage);   
+           this.menuCtrl.enable(true, 'myMenu');
+         })
+   
+      
+      }
+   
+   else{
+   
+      this.rootPage=UserLogin;
+      this.menuCtrl.enable(false, 'myMenu');
+   }
+   
+   
+       })
+     
+         
+      // if(this.auth.afAuth.auth.currentUser==null){
         
-       }
-       else{
-        this.events.subscribe('User email', (user) => {
-          // user and time are the same arguments passed in `events.publish(user, time)`
-          console.log('Welcome', user);
-          if(user!=null){ 
-             this.userEmail=user;
         
-          this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(r=>{
-            this.userName=r[0].Name;
-            console.log('app comp username '+this.userName);  
-            this.logstate=true; 
-            this.nav.setRoot(HomePage);   
-          })
-        } 
-        });
-       }
+      //  }
+      //  else{
+      //   this.events.subscribe('User email', (user) => {
+      //     // user and time are the same arguments passed in `events.publish(user, time)`
+      //     console.log('Welcome', user);
+      //     if(user!=null){ 
+      //        this.userEmail=user;
+        
+      //     this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(r=>{
+      //       this.userName=r[0].Name;
+      //       console.log('app comp username '+this.userName);  
+      //       this.logstate=true; 
+      //       this.nav.setRoot(HomePage);   
+      //     })
+      //   } 
+      //   });
+      //  }
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
@@ -168,7 +214,7 @@ export class MyApp {
       
     });
   }
-
+ 
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
