@@ -37,16 +37,18 @@ export class HomePage {
 
  this.user= this.navParams.get('user');
  if(this.user!=undefined){
- console.log(this.user.email);
+ 
  this.userEmail = this.user.email;
- this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(data =>{
+ console.log('user Email is '+this.userEmail);
+  this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(name =>{
+ 
+    this.userName = name[0].Name; 
+    console.log("user Name is "+ this.userName);
+  }
   
-    this.userName=data[0].Name;
-  
-  
-}
+
  )
-   console.log("user Name is "+ this.userName);
+  
 
 
 

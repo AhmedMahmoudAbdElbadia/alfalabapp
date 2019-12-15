@@ -74,8 +74,8 @@ import { TamanyOffersPage } from '../pages/tamany-offers/tamany-offers';
 // import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 
 
-
-const config :SocketIoConfig ={url: 'http://localhost:3001', options:{}}
+// http://localhost:3001
+const config :SocketIoConfig ={url: '', options:{}}
 @NgModule({
   declarations: [
     MyApp,

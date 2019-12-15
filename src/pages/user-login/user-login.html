@@ -8,7 +8,7 @@
 <ion-content padding  style="font-family:Neo sans !important ">
 
 
-    <form [formGroup]="form" (ngSubmit)="Login()">
+    <form style="text-align: center; " [formGroup]="form" (ngSubmit)="Login()">
 
     <ion-list no-lines padding-top>
       <ion-item>
@@ -21,6 +21,7 @@
     <button ion-button block icon-start  round color="RedAlfa">
         <ion-icon name="log-in"></ion-icon>تسجيل دخول
     </button>
+    <label  (click)="presentPrompt()" ion-button style="color:white;">نسيت كلمة المرور</label>
     <!-- <div style="text-align:center; color:white"  class="hrLine"><span>أو</span></div> -->
     <ion-grid>
         

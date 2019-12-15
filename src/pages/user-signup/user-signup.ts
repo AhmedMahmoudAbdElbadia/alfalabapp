@@ -155,4 +155,9 @@ ValidatToast2() {
   });
   toast.present();
 }
+
+GoToMain(){
+  this.menuCtrl.enable(true, 'myMenu');
+  this.navCtrl.setRoot(HomePage);
+}
 }

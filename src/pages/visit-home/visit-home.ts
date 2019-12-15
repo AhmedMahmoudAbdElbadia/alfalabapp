@@ -3,6 +3,11 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import {Validators, FormBuilder, FormGroup,AbstractControl } from '@angular/forms';
 import {  AlfaLabServices } from '../../services/AlfaLabServices';
 import { MainPage } from '../main/main';
+import { AuthService } from '../../services/auth.service';
+import { UserLogin } from '../user-login/user-login';
+import { HomePage } from '../home/home';
+import { MyApp } from '../../app/app.component';
+import { AlertController } from 'ionic-angular';
 class branch {
   public id: number;
   public name: string;
@@ -39,7 +44,8 @@ export class VisitHomePage {
   Time:AbstractControl;
   TestType:AbstractControl;
   public form : FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder,public AlfaLabServices:AlfaLabServices,public toastCtrl: ToastController) {
+  HomePage:HomePage;
+  constructor(public navCtrl: NavController,private alertCtrl: AlertController, private auth: AuthService,public navParams: NavParams,private formBuilder: FormBuilder,public AlfaLabServices:AlfaLabServices,public toastCtrl: ToastController) {
 
 this.branches=[
 {id:1,name:"الرياض"},
@@ -84,9 +90,14 @@ this.branches=[
   }
 
   ionViewDidLoad() {
-    
-    console.log('ionViewDidLoad VisitHomePage');
-  }
+    if(this.auth.afAuth.auth.currentUser==null){
+      this.presentConfirm();
+   
+  
+  
+      
+     }
+    }
   addVisitHome(){
 
  
@@ -136,6 +147,45 @@ ValidatToast() {
   toast.present();
 }
 
+
+presentConfirm() {
+  let alert = this.alertCtrl.create({
+    title: 'من فضلك',
+    message: 'لعمل طلب زيارة منزلية يجب تسجيل دخول',
+    buttons: [
+      {
+        text: 'الغاء',
+        role: 'cancel',
+        handler: () => {
+          this.navCtrl.parent.parent.push(HomePage)
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'تسجيل الدخول',
+        handler: () => {
+   
+            this.navCtrl.parent.parent.push(UserLogin)
+  
+        
+          console.log('Buy clicked');
+        }
+      }
+    ]
+  });
+  alert.present();
+}
+
+
+
+LoginToast() {
+  let toast = this.toastCtrl.create({
+    message: 'لاستخدام هذه الصفحة يجب تسجيل الدخول',
+    duration: 3000,
+    cssClass:"color:red"
+  });
+  toast.present();
+}
 DoneAddToast() {
   let toast = this.toastCtrl.create({
     message: 'شكرا لك تم ارسال طلب الزيارة المنزلية وسيتم التواصل معك',

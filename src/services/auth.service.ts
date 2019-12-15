@@ -21,12 +21,13 @@ export class AuthService {
 signUpWithEmail(email:string , password :string){
     return this.afAuth.auth.createUserWithEmailAndPassword(email,
 		password)
-		
-
-		
-
 	
 }
-
+resetPassword(email: string) {
+    var auth = firebase.auth();
+    return auth.sendPasswordResetEmail(email)
+      .then(() => console.log("email sent"))
+      .catch((error) => console.log(error))
+  }
 
 }

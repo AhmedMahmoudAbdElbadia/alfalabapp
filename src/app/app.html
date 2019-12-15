@@ -9,11 +9,15 @@
  
   <ion-header >
     <ion-toolbar color="RedAlfa" >
-      <ion-title>Menu</ion-title>
+      <ion-title style="font-family:Neo sans !important;">القائمة  </ion-title>
+      
     </ion-toolbar>
   </ion-header>
 
   <ion-content  style="background-color:#4b7ebd; font-family:Neo sans !important; " >
+    <div *ngIf="logstate" style="text-align: center; color: white; margin-top: 5px;"> 
+      <label style="font-size: larger;">{{userName}} :  اهلا بك </label>  <br>   <ion-icon style=" margin-top: 5px; margin-bottom: 3px;" ios="ios-log-out" md="md-log-out" (click)="LogOut()"><label style=" font-family:Neo sans !important" > تسجيل خروج </label></ion-icon>    
+    </div>
     <ion-list  no-lines  >
       <button color="BlueAlfa"  menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
            <ion-icon [name]="p.icon"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;

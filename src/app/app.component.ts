@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, NavController, MenuController } from 'ionic-angular';
+import { Component, ViewChild,Inject  } from '@angular/core';
+import { Nav, Platform, NavController, MenuController, NavParams } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -17,6 +17,9 @@ import { AuthService } from '../services/auth.service';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 import {timer} from 'rxjs/observable/timer';
 import { from } from 'rxjs/observable/from';
+import {  AlfaLabServices } from '../services/AlfaLabServices';
+import { Events } from 'ionic-angular';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -24,16 +27,67 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
-
+  public Home :HomePage
   pages: Array<{title: string, component: any,icon:string}>;
   signal_app_id:string  ='32d2282c-ea9c-4ce9-a0f2-ecd6bdf20992';
   firebase_id:string='870640029892';
   showsplash= true;
-  constructor(public platform: Platform, private auth: AuthService,public menuCtrl: MenuController,public statusBar: StatusBar, public splashScreen: SplashScreen,OneSignal:OneSignal) {
-    this.rootPage=UserLogin;
+  user: any;
+  userEmail: any;
+  userName: any;
+  logstate:boolean
+  constructor(public platform: Platform,public events: Events, public AlfaLabServices:AlfaLabServices,private auth: AuthService,public menuCtrl: MenuController,public statusBar: StatusBar, public splashScreen: SplashScreen,OneSignal:OneSignal) {
+      if(this.auth.afAuth.auth.currentUser!=null){
+        this.events.subscribe('User email', (user) => {
+          // user and time are the same arguments passed in `events.publish(user, time)`
+          console.log('Welcome', user);
+          if(user!=null){ 
+             this.userEmail=user;
+        
+          this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(r=>{
+            this.userName=r[0].Name;
+            console.log('app comp username '+this.userName);  
+            this.logstate=true; 
+            this.nav.setRoot(HomePage);   
+          })
+        } 
+        });
+
+      
+      }
+      else{
+          this.rootPage=UserLogin;
+      }
+   
+
     this.initializeApp();
+
+    events.subscribe('User email', (user) => {
+      // user and time are the same arguments passed in `events.publish(user, time)`
+      console.log('Welcome', user);
+      if(user!=null){ 
+         this.userEmail=user;
+    
+      this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(r=>{
+        this.userName=r[0].Name;
+        console.log('app comp username '+this.userName);  
+        this.logstate=true;    
+      })
+    } 
+    });
+
+
+    // if(this.auth.afAuth.auth.currentUser!=null){
+     
  
- 
+      
+    //  }
+   
+     
+   
+   
+   
+   
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'الرئيسية', component: HomePage,icon:"home" },
@@ -68,18 +122,48 @@ export class MyApp {
       // var url: string = 'assets/mock-images/image.jpg';
      }
     }
-    
+    ionViewDidLoad() {
+      console.log('ionViewDidLoad GallaryPage');
+    }
+    LogOut(){
+      this.auth.afAuth.auth.signOut().then(function() {
+        this.user=null;
+        this.logstate=false;    
 
+    }).catch(function(error) {
+      console.log(error)
+    });
+      // this.nav.push(UserLogin)
+      this.nav.setRoot(UserLogin)
+      this.logstate=false;    
+    }
   initializeApp() {
     this.platform.ready().then(() => {
-      // if(this.auth.afAuth.auth.currentUser==null){
-      //   this.menuCtrl.enable(false, 'myMenu');
-      //   console.log("اتعملت")
-      //  }
+      if(this.auth.afAuth.auth.currentUser==null){
+        this.menuCtrl.enable(false, 'myMenu');
+        
+       }
+       else{
+        this.events.subscribe('User email', (user) => {
+          // user and time are the same arguments passed in `events.publish(user, time)`
+          console.log('Welcome', user);
+          if(user!=null){ 
+             this.userEmail=user;
+        
+          this.AlfaLabServices.GetUserByEmail(this.userEmail).subscribe(r=>{
+            this.userName=r[0].Name;
+            console.log('app comp username '+this.userName);  
+            this.logstate=true; 
+            this.nav.setRoot(HomePage);   
+          })
+        } 
+        });
+       }
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+     
       timer(3000).subscribe(()=>this.showsplash=false)
       
     });

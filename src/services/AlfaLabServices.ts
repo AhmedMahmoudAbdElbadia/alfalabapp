@@ -36,7 +36,7 @@ this.Complaints='https://api.mlab.com/api/1/databases/alfalabdb/collections/comp
 this.tamany='https://api.mlab.com/api/1/databases/alfalabdb/collections/tamany';
 this.offers='https://api.mlab.com/api/1/databases/alfalabdb/collections/offers';
 this.slider ='https://api.mlab.com/api/1/databases/alfalabdb/collections/slider';
-this.instgramfeed ='https://api.instagram.com/v1/users/self/media/recent/?access_token=5557661284.1677ed0.5bd6458e07514a87876f61df56f6d3ac'
+this.instgramfeed ='https://api.instagram.com/v1/users/self/media/recent/?access_token=5557661284.1677ed0.5bd59092ddaf4ba2849bede200e3415b'
 this.Users='https://api.mlab.com/api/1/databases/alfalabdb/collections/users'
 
 }
