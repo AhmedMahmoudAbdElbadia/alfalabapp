@@ -37,6 +37,7 @@
     "body-parser": "^1.19.0",
     "call-number": "^1.0.1",
     "cordova-android": "^8.1.0",
+    "cordova-ios": "^5.1.1",
     "cordova-plugin-actionsheet": "2.3.3",
     "cordova-plugin-appavailability": "0.4.2",
     "cordova-plugin-device": "^2.0.2",
@@ -65,6 +66,7 @@
     "ionic-select-searchable": "^2.10.0",
     "ionicons": "3.0.0",
     "morgan": "^1.9.1",
+    "mx.ferreyra.callnumber": "0.0.2",
     "ng-socket-io": "^0.2.4",
     "node-sass": "^4.13.0",
     "onesignal-cordova-plugin": "^2.4.7",
@@ -112,10 +114,12 @@
         "OKHTTP_VERSION": "3.12.0"
       },
       "cordova-plugin-geolocation": {},
-      "mx.ferreyra.callnumber": {}
+      "mx.ferreyra.callnumber": {},
+      "call-number": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
