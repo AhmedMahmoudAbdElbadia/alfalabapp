@@ -60,7 +60,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase": "^4.12.1",
-    "grpc": "^1.24.2",
+    "grpc": "^1.24.9",
     "ionic-angular": "3.9.2",
     "ionic-img-viewer": "^2.9.0",
     "ionic-select-searchable": "^2.10.0",
